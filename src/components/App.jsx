@@ -11,22 +11,21 @@ class App extends React.Component {
     this.state = {
       movies: [],
       moviesWatchLater: [],
-      sort_by: "revenue.desc"
+      sort_by: "popularity.desc"
     };
   }
 
   componentDidMount() {
-    Axios
-      .get(`${API_URL}/discover/movie?api_key=${API_KEY_3}&sort_by=${this.state.sort_by}&language=en-US`)
-      .then((response) => {
-        this.setState({
-          movies: response.data.results
-        });
-      })
-      .catch(error => console.log(error));
+    this.getMovies();
   };
 
-  componentDidUpdate(){
+  componentDidUpdate(prevProps, prevState) {
+    if (prevState.sort_by !== this.state.sort_by) {
+      this.getMovies();
+    }
+  };
+
+  getMovies() {
     Axios
       .get(`${API_URL}/discover/movie?api_key=${API_KEY_3}&sort_by=${this.state.sort_by}&language=en-US`)
       .then((response) => {
@@ -67,9 +66,9 @@ class App extends React.Component {
         <div className="col-9">
           <div className="row mb-4">
             <div className="col-12">
-              <MovieTabs 
-                sort_by={this.state.sort_by} 
-                updateSortBy={this.updateSortBy} 
+              <MovieTabs
+                sort_by={this.state.sort_by}
+                updateSortBy={this.updateSortBy}
               />
             </div>
           </div>
@@ -88,8 +87,11 @@ class App extends React.Component {
             })}
           </div>
         </div>
+        <div className="row">
+          
+        </div>
         <div className="col-3">
-          <p>Watch Later: {this.state.moviesWatchLater.length}</p>
+          <p>Watch Later: {this.state.moviesWatchLater.length} movies</p>
         </div>
       </div>
     </div>
