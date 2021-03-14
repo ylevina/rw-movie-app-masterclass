@@ -1,6 +1,7 @@
 import React from "react";
 import MovieItem from "./MovieItem";
 import MovieTabs from "./MovieTabs";
+import PaginationButtons from "./PaginationButtons";
 import { API_URL, API_KEY_3 } from "../utils/api";
 import Axios from 'axios';
 
@@ -11,7 +12,9 @@ class App extends React.Component {
     this.state = {
       movies: [],
       moviesWatchLater: [],
-      sort_by: "popularity.desc"
+      sort_by: "popularity.desc",
+      page: 1,
+      totalPages: 1
     };
   }
 
@@ -20,17 +23,18 @@ class App extends React.Component {
   };
 
   componentDidUpdate(prevProps, prevState) {
-    if (prevState.sort_by !== this.state.sort_by) {
+    if (prevState.sort_by !== this.state.sort_by || prevState.page !== this.state.page) {
       this.getMovies();
     }
   };
 
   getMovies() {
     Axios
-      .get(`${API_URL}/discover/movie?api_key=${API_KEY_3}&sort_by=${this.state.sort_by}&language=en-US`)
+      .get(`${API_URL}/discover/movie?api_key=${API_KEY_3}&page=${this.state.page}&sort_by=${this.state.sort_by}&language=en-US`)
       .then((response) => {
         this.setState({
-          movies: response.data.results
+          movies: response.data.results,
+          totalPages: response.data.total_pages
         });
       })
       .catch(error => console.log(error));
@@ -60,6 +64,22 @@ class App extends React.Component {
     });
   };
 
+  prevPage = () => {
+    if (this.state.page > 1) {
+      this.setState({
+        page: this.state.page - 1
+      });
+    }
+  };
+
+  nextPage = () => {
+    if (this.state.page < this.state.totalPages) {
+      this.setState({
+        page: this.state.page + 1
+      });
+    }
+  };
+
   render() {
     return <div className="container">
       <div className="row mt-4">
@@ -71,6 +91,14 @@ class App extends React.Component {
                 updateSortBy={this.updateSortBy}
               />
             </div>
+          </div>
+          <div className="row mb-4">
+            <PaginationButtons
+              page={this.state.page}
+              totalPages={this.state.totalPages}
+              prevPage={this.prevPage}
+              nextPage={this.nextPage}
+            />
           </div>
           <div className="row">
             {this.state.movies.map(movie => {
@@ -86,9 +114,14 @@ class App extends React.Component {
               );
             })}
           </div>
-        </div>
-        <div className="row">
-          
+          <div className="row mb-4">
+            <PaginationButtons
+              page={this.state.page}
+              totalPages={this.state.totalPages}
+              prevPage={this.prevPage}
+              nextPage={this.nextPage}
+            />
+          </div>
         </div>
         <div className="col-3">
           <p>Watch Later: {this.state.moviesWatchLater.length} movies</p>
