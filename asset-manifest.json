@@ -1,20 +1,20 @@
 {
   "files": {
-    "main.js": "/rw-movie-app-masterclass/static/js/main.06a9f8ae.chunk.js",
-    "main.js.map": "/rw-movie-app-masterclass/static/js/main.06a9f8ae.chunk.js.map",
-    "runtime-main.js": "/rw-movie-app-masterclass/static/js/runtime-main.021f61c4.js",
-    "runtime-main.js.map": "/rw-movie-app-masterclass/static/js/runtime-main.021f61c4.js.map",
+    "main.js": "/rw-movie-app-masterclass/static/js/main.4cf393cf.chunk.js",
+    "main.js.map": "/rw-movie-app-masterclass/static/js/main.4cf393cf.chunk.js.map",
+    "runtime-main.js": "/rw-movie-app-masterclass/static/js/runtime-main.55716171.js",
+    "runtime-main.js.map": "/rw-movie-app-masterclass/static/js/runtime-main.55716171.js.map",
     "static/css/2.fabbef47.chunk.css": "/rw-movie-app-masterclass/static/css/2.fabbef47.chunk.css",
-    "static/js/2.e3cff867.chunk.js": "/rw-movie-app-masterclass/static/js/2.e3cff867.chunk.js",
-    "static/js/2.e3cff867.chunk.js.map": "/rw-movie-app-masterclass/static/js/2.e3cff867.chunk.js.map",
+    "static/js/2.47037a6d.chunk.js": "/rw-movie-app-masterclass/static/js/2.47037a6d.chunk.js",
+    "static/js/2.47037a6d.chunk.js.map": "/rw-movie-app-masterclass/static/js/2.47037a6d.chunk.js.map",
     "index.html": "/rw-movie-app-masterclass/index.html",
     "static/css/2.fabbef47.chunk.css.map": "/rw-movie-app-masterclass/static/css/2.fabbef47.chunk.css.map",
-    "static/js/2.e3cff867.chunk.js.LICENSE.txt": "/rw-movie-app-masterclass/static/js/2.e3cff867.chunk.js.LICENSE.txt"
+    "static/js/2.47037a6d.chunk.js.LICENSE.txt": "/rw-movie-app-masterclass/static/js/2.47037a6d.chunk.js.LICENSE.txt"
   },
   "entrypoints": [
-    "static/js/runtime-main.021f61c4.js",
+    "static/js/runtime-main.55716171.js",
     "static/css/2.fabbef47.chunk.css",
-    "static/js/2.e3cff867.chunk.js",
-    "static/js/main.06a9f8ae.chunk.js"
+    "static/js/2.47037a6d.chunk.js",
+    "static/js/main.4cf393cf.chunk.js"
   ]
 }
