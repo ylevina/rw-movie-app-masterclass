@@ -6,9 +6,9 @@ class PaginationButtons extends React.Component {
 
         return (
             <div className="col-12 d-flex align-items-center justify-content-between">
-                <button onClick={prevPage}>Prev</button>
+                <button className="btn btn-secondary" onClick={prevPage}>Previous Page</button>
                 <p>Page {page} of {totalPages}</p>
-                <button onClick={nextPage}>Next</button>
+                <button className="btn btn-secondary" onClick={nextPage}>Next Page</button>
             </div>
         );
     };

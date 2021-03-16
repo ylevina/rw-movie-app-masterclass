@@ -27,16 +27,16 @@ class MovieItem extends React.Component {
                         {this.state.watchLater ? 
                         <button 
                             type="button" 
-                            className="btn btn-success" 
+                            className="btn btn-secondary" 
                             onClick={()=>{
                                 this.setState({ watchLater: false });
                                 removeMovieFromWatchLater(movie);
                             }}>
-                            Remove Watch Later
+                            Remove from Watch List
                         </button> :
                             <button
                                 type="button"
-                                className="btn btn-secondary"
+                                className="btn btn-success"
                                 onClick={() => {
                                     this.setState({ watchLater: true });
                                     addMovieToWatchLater(movie);
@@ -44,7 +44,7 @@ class MovieItem extends React.Component {
                                 Watch Later
                             </button>}
                     </div>
-                    <button onClick={removeMovie.bind(this, movie)}>Delete movie</button>
+                    <button className="btn btn-danger" onClick={removeMovie.bind(this, movie)}>Delete movie</button>
                 </div>
             </div>
         );
